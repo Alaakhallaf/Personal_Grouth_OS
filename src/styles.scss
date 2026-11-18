@@ -1,1 +1,169 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --bg: #f3efe6;
+  --surface: #fffcf8;
+  --ink: #1c2430;
+  --muted: #5e675f;
+  --line: #e2d9cc;
+  --accent: #1e5c45;
+  --accent-soft: #e5f2eb;
+  --sidebar: #14201b;
+  --sidebar-ink: #e8f2ec;
+  --sidebar-muted: #9aafa3;
+  --sidebar-line: rgba(232, 242, 236, 0.12);
+  --gold: #b08948;
+  --shadow: 0 1px 2px rgba(28, 36, 48, 0.05);
+  --radius: 14px;
+  --sidebar-width: 16.75rem;
+  --topbar-height: 4.25rem;
+  --font: "Segoe UI", "Helvetica Neue", sans-serif;
+  --display: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+app-root {
+  display: block;
+  min-height: 100%;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.page {
+  display: grid;
+  gap: 1.5rem;
+  max-width: 68rem;
+}
+
+.page-header {
+  display: grid;
+  gap: 0.4rem;
+  max-width: 40rem;
+}
+
+.page-header h1 {
+  font-family: var(--display);
+  font-size: clamp(1.85rem, 3vw, 2.45rem);
+  font-weight: 560;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+
+.eyebrow {
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.lede {
+  color: var(--muted);
+}
+
+.empty-state {
+  background: var(--surface);
+  border: 1px dashed var(--line);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.35rem;
+}
+
+.empty-state h2 {
+  font-size: 1.05rem;
+  margin-bottom: 0.35rem;
+}
+
+.empty-state p {
+  color: var(--muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}
+/* ==========================================
+   Global Form Control Standards
+   ========================================== */
+   form {
+    input[type="text"],
+    input[type="date"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      font-family: var(--font);
+      font-size: 0.95rem;
+      color: var(--ink);
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  
+      &:focus {
+        border-color: var(--accent);
+        box-shadow: 0 0 0 3px var(--accent-soft);
+      }
+  
+      &::placeholder {
+        color: var(--muted);
+        opacity: 0.7;
+      }
+    }
+  
+    textarea {
+      resize: vertical;
+      min-height: 90px;
+    }
+  }

@@ -1,0 +1,87 @@
+[1mdiff --git a/src/app/app.routes.ts b/src/app/app.routes.ts[m
+[1mindex dc39edb..b7a0111 100644[m
+[1m--- a/src/app/app.routes.ts[m
+[1m+++ b/src/app/app.routes.ts[m
+[36m@@ -1,3 +1,80 @@[m
+[31m-import { Routes } from '@angular/router';[m
+[32m+[m[32m      import { Routes } from '@angular/router';[m
+[32m+[m[32m      import { AppShellComponent } from './shared/components/app-shell/app-shell.component';[m
+ [m
+[31m-export const routes: Routes = [];[m
+[32m+[m[32m      export const routes: Routes = [[m
+[32m+[m[32m        {[m
+[32m+[m[32m          path: '',[m
+[32m+[m[32m          component: AppShellComponent,[m
+[32m+[m[32m          children: [[m
+[32m+[m[32m            {[m
+[32m+[m[32m              path: '',[m
+[32m+[m[32m              loadComponent: () =>[m
+[32m+[m[32m                import('./features/dashboard/dashboard.component').then([m
+[32m+[m[32m                  (m) => m.DashboardComponent,[m
+[32m+[m[32m                ),[m
+[32m+[m[32m              title: 'Dashboard',[m
+[32m+[m[32m              data: { title: 'Dashboard' },[m
+[32m+[m[32m            },[m
+[32m+[m[32m            {[m
+[32m+[m[32m              path: 'goals',[m
+[32m+[m[32m              loadComponent: () =>[m
+[32m+[m[32m                import('./features/goals/goals.component').then((m) => m.GoalsComponent),[m
+[32m+[m[32m              title: 'Goals',[m
+[32m+[m[32m              data: { title: 'Goals' },[m
+[32m+[m[32m            },[m
+[32m+[m[32m            {[m
+[32m+[m[32m              path: 'planner',[m
+[32m+[m[32m              loadComponent: () =>[m
+[32m+[m[32m                import('./features/daily-planner/daily-planner.component').then([m
+[32m+[m[32m                  (m) => m.DailyPlannerComponent,[m
+[32m+[m[32m                ),[m
+[32m+[m[32m              title: 'Planner',[m
+[32m+[m[32m              data: { title: 'Planner' },[m
+[32m+[m[32m            },[m
+[32m+[m[32m            {[m
+[32m+[m[32m              path: 'habits',[m
+[32m+[m[32m              loadComponent: () =>[m
+[32m+[m[32m                import('./features/habits/habits.component').then((m) => m.HabitsComponent),[m
+[32m+[m[32m              title: 'Habits',[m
+[32m+[m[32m              data: { title: 'Habits' },[m
+[32m+[m[32m            },[m
+[32m+[m[32m            {[m
+[32m+[m[32m              path: 'mindset',[m
+[32m+[m[32m              loadComponent: () =>[m
+[32m+[m[32m                import('./features/mindset/mindset.component').then([m
+[32m+[m[32m                  (m) => m.MindsetComponent,[m
+[32m+[m[32m                ),[m
+[32m+[m[32m              title: 'Mindset',[m
+[32m+[m[32m              data: { title: 'Mindset' },[m
+[32m+[m[32m            },[m
+[32m+[m[32m            {[m
+[32m+[m[32m              path: 'learning',[m
+[32m+[m[32m              loadComponent: () =>[m
+[32m+[m[32m                import('./features/learning/learning.component').then([m
+[32m+[m[32m                  (m) => m.LearningComponent,[m
+[32m+[m[32m                ),[m
+[32m+[m[32m              title: 'Learning',[m
+[32m+[m[32m              data: { title: 'Learning' },[m
+[32m+[m[32m            },[m
+[32m+[m[32m            {[m
+[32m+[m[32m              path: 'progress',[m
+[32m+[m[32m              loadComponent: () =>[m
+[32m+[m[32m                import('./features/analytics/progress.component').then([m
+[32m+[m[32m                  (m) => m.ProgressComponent,[m
+[32m+[m[32m                ),[m
+[32m+[m[32m              title: 'Progress',[m
+[32m+[m[32m              data: { title: 'Progress' },[m
+[32m+[m[32m            },[m
+[32m+[m[32m            {[m
+[32m+[m[32m              path: 'reflection',[m
+[32m+[m[32m              loadComponent: () =>[m
+[32m+[m[32m                import('./features/reflection/reflection.component').then([m
+[32m+[m[32m                  (m) => m.ReflectionComponent,[m
+[32m+[m[32m                ),[m
+[32m+[m[32m              title: 'Reflection',[m
+[32m+[m[32m              data: { title: 'Reflection' },[m
+[32m+[m[32m            },[m
+[32m+[m[32m            { path: '**', redirectTo: '' },[m
+[32m+[m[32m          ],[m
+[32m+[m[32m        },[m
+[32m+[m[32m      ];[m

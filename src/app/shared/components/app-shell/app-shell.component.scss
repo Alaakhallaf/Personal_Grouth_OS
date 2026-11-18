@@ -1,0 +1,59 @@
+:host {
+  display: block;
+  min-height: 100dvh;
+}
+
+.skip {
+  position: absolute;
+  left: 0.75rem;
+  top: 0.75rem;
+  z-index: 40;
+  transform: translateY(-150%);
+  padding: 0.45rem 0.7rem;
+  border-radius: 0.5rem;
+  background: var(--ink);
+  color: var(--surface);
+  text-decoration: none;
+}
+
+.skip:focus {
+  transform: none;
+}
+
+.shell {
+  min-height: 100dvh;
+}
+
+.workspace {
+  min-height: 100dvh;
+  min-width: 0;
+}
+
+main {
+  padding: 1.25rem 1rem 2.5rem;
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 25;
+  border: 0;
+  padding: 0;
+  background: rgba(20, 32, 27, 0.46);
+  cursor: pointer;
+}
+
+@media (min-width: 960px) {
+  .shell {
+    display: grid;
+    grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
+  }
+
+  .backdrop {
+    display: none;
+  }
+
+  main {
+    padding: 1.75rem 1.75rem 3rem;
+  }
+}
