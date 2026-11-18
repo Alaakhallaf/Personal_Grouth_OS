@@ -1,0 +1,83 @@
+.card-grid,
+.sections ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.card-grid {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.card,
+.sections a {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.card {
+  display: grid;
+  gap: 0.35rem;
+  align-content: start;
+  min-height: 9.5rem;
+  padding: 1.1rem 1.15rem 1.15rem;
+}
+
+.card h2,
+.sections h2 {
+  font-size: 1.05rem;
+}
+
+.hint {
+  color: var(--accent);
+  font-size: 0.85rem;
+}
+
+.empty {
+  color: var(--muted);
+  margin-top: 0.45rem;
+}
+
+.sections {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.sections ul {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.sections a {
+  display: grid;
+  gap: 0.15rem;
+  padding: 0.85rem 1rem;
+  text-decoration: none;
+}
+
+.sections a:hover {
+  border-color: #c9bfb0;
+}
+
+.sections small {
+  color: var(--muted);
+}
+
+@media (min-width: 720px) {
+  .card-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .sections ul {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1100px) {
+  .sections ul {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}

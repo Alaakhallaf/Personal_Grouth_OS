@@ -1,0 +1,34 @@
+<section class="page">
+  <header class="page-header">
+    <p class="eyebrow">Today</p>
+    <h1>Current focus</h1>
+    <p class="lede">
+      A quiet view of what matters in this phase. The cards stay empty until goals,
+      the planner, and habits have something to show.
+    </p>
+  </header>
+
+  <ul class="card-grid">
+    @for (card of focusCards; track card.title) {
+      <li class="card">
+        <h2>{{ card.title }}</h2>
+        <p class="hint">{{ card.hint }}</p>
+        <p class="empty">{{ card.empty }}</p>
+      </li>
+    }
+  </ul>
+
+  <div class="sections">
+    <h2>Planned sections</h2>
+    <ul>
+      @for (section of sections; track section.path) {
+        <li>
+          <a [routerLink]="section.path">
+            <span>{{ section.label }}</span>
+            <small>{{ section.summary }}</small>
+          </a>
+        </li>
+      }
+    </ul>
+  </div>
+</section>
