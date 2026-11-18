@@ -1,0 +1,21 @@
+<header class="topbar">
+  <button
+    type="button"
+    class="menu"
+    (click)="menuToggle.emit()"
+    [attr.aria-expanded]="menuOpen()"
+    aria-controls="app-sidebar"
+  >
+    <span class="bars" aria-hidden="true"></span>
+    <span class="visually-hidden">
+      {{ menuOpen() ? 'Close navigation' : 'Open navigation' }}
+    </span>
+  </button>
+
+  <div class="titles">
+    <p class="product">Personal Growth OS</p>
+    <p class="section">{{ title() }}</p>
+  </div>
+
+  <p class="date">{{ todayLabel }}</p>
+</header>

@@ -1,0 +1,20 @@
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="shell" [class.nav-open]="navOpen()">
+  <app-sidebar [open]="navOpen()" (navigated)="closeNav()" />
+
+  @if (navOpen()) {
+    <button type="button" class="backdrop" aria-label="Close navigation" (click)="closeNav()"></button>
+  }
+
+  <div class="workspace">
+    <app-topbar
+      [title]="pageTitle()"
+      [menuOpen]="navOpen()"
+      (menuToggle)="toggleNav()"
+    />
+    <main id="main">
+      <router-outlet />
+    </main>
+  </div>
+</div>
