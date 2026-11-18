@@ -1,0 +1,110 @@
+<div class="page">
+    <!-- Header -->
+    <div class="page-header">
+      <span class="eyebrow">Personal Growth OS</span>
+      <h1>Goals & Vision</h1>
+      <p class="lede">Define your path, track your milestones, and build your future.</p>
+    </div>
+  
+    <!-- Stats Bar -->
+    <div class="stats-bar">
+      <div class="stat-card">
+        <span class="label">Total Goals</span>
+        <span class="value">{{ goalService.goals().length }}</span>
+      </div>
+      <div class="stat-card">
+        <span class="label">Active Goals</span>
+        <span class="value">{{ goalService.activeGoals().length }}</span>
+      </div>
+      <div class="stat-card">
+        <span class="label">Completed</span>
+        <span class="value">{{ goalService.completedGoals().length }}</span>
+      </div>
+    </div>
+  
+    <!-- Form -->
+    <form (ngSubmit)="onSubmit()" class="goal-form">
+      <h3>✨ Add New Goal</h3>
+      
+      <input 
+        type="text" 
+        placeholder="Goal title..." 
+        [ngModel]="newTitle()" 
+        (ngModelChange)="newTitle.set($event)"
+        name="title" 
+        required 
+      />
+  
+      <textarea 
+        placeholder="Goal description or notes..." 
+        [ngModel]="newDescription()" 
+        (ngModelChange)="newDescription.set($event)"
+        name="description">
+      </textarea>
+  
+      <div class="form-row">
+        <select [ngModel]="newDomain()" (ngModelChange)="newDomain.set($event)" name="domain">
+          @for (d of domains; track d) {
+            <option [value]="d">{{ d }}</option>
+          }
+        </select>
+  
+        <input 
+          type="date" 
+          [ngModel]="newTargetDate()" 
+          (ngModelChange)="newTargetDate.set($event)"
+          name="targetDate" 
+          required 
+        />
+      </div>
+  
+      <button type="submit" class="btn-primary">Add Goal</button>
+    </form>
+  
+    <!-- Goals List -->
+    <div class="goals-list-section">
+      <h3>🎯 Your Goals</h3>
+      
+      @if (goalService.goals().length === 0) {
+        <div class="empty-state">
+          <h2>No goals found</h2>
+          <p>No goals added yet. Start by adding your first goal above!</p>
+        </div>
+      } @else {
+        <div class="goals-grid">
+          @for (goal of goalService.goals(); track goal.id) {
+            <div class="goal-card" [class.completed]="goal.status === 'completed'">
+              <div class="goal-header">
+                <span class="badge">{{ goal.domain }}</span>
+                <span class="status-indicator {{ goal.status }}">{{ goal.status }}</span>
+              </div>
+              
+              <div class="goal-body">
+                <h4>{{ goal.title }}</h4>
+                <p>{{ goal.description || 'No description provided.' }}</p>
+              </div>
+  
+              <div class="goal-footer">
+                <small class="target-date">📅 Target: {{ goal.targetDate }}</small>
+                
+                <div class="goal-actions">
+                  @if (goal.status === 'active') {
+                    <button class="btn-complete" (click)="goalService.updateGoalStatus(goal.id, 'completed')" title="Mark as Completed">
+                      ✓ Complete
+                    </button>
+                  } @else {
+                    <button class="btn-activate" (click)="goalService.updateGoalStatus(goal.id, 'active')" title="Reactivate Goal">
+                      ↺ Reactivate
+                    </button>
+                  }
+                  <button class="btn-delete" (click)="goalService.deleteGoal(goal.id)" title="Delete Goal">
+                    🗑️ Delete
+                  </button>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+      }
+    </div>
+  </div>

@@ -1,0 +1,224 @@
+// الاستفادة من الـ Global variables المتاحة في المشروع بالكامل
+:host {
+    display: block;
+    padding: 2rem 1.5rem;
+  }
+  
+  .page {
+    margin: 0 auto;
+  }
+  
+  // Stats Bar Layout
+  .stats-bar {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+  
+    .stat-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.35rem;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+  
+      .label {
+        font-size: 0.8rem;
+        color: var(--muted);
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+  
+      .value {
+        font-family: var(--display);
+        font-size: 2rem;
+        font-weight: 600;
+        color: var(--accent);
+      }
+    }
+  }
+  
+  // Add Goal Form Layout
+  .goal-form {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.75rem;
+    box-shadow: var(--shadow);
+    display: grid;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  
+    h3 {
+      font-family: var(--display);
+      font-size: 1.25rem;
+      color: var(--ink);
+    }
+  
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+  
+      @media (max-width: 600px) {
+        grid-template-columns: 1fr;
+      }
+    }
+  
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      padding: 0.8rem 1.25rem;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+      font-family: var(--font);
+  
+      &:hover {
+        background: #143d2f;
+      }
+    }
+  }
+  
+  // Goals List Section
+  .goals-list-section {
+    display: grid;
+    gap: 1rem;
+    margin-top: 2rem;
+  
+    h3 {
+      font-family: var(--display);
+      font-size: 1.25rem;
+      color: var(--ink);
+    }
+  
+    .goals-grid {
+      display: grid;
+      gap: 1rem;
+  
+      .goal-card {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        padding: 1.5rem;
+        box-shadow: var(--shadow);
+        display: grid;
+        gap: 1rem;
+        transition: transform 0.2s, box-shadow 0.2s;
+  
+        &:hover {
+          border-color: var(--gold);
+        }
+  
+        &.completed {
+          opacity: 0.75;
+          background: #faf7f2;
+  
+          .goal-body h4 {
+            text-decoration: line-through;
+            color: var(--muted);
+          }
+        }
+  
+        .goal-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+  
+          .badge {
+            background: var(--accent-soft);
+            color: var(--accent);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+          }
+  
+          .status-indicator {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+  
+            &.active { color: var(--accent); }
+            &.completed { color: var(--gold); }
+          }
+        }
+  
+        .goal-body {
+          display: grid;
+          gap: 0.35rem;
+  
+          h4 {
+            font-family: var(--display);
+            font-size: 1.15rem;
+            color: var(--ink);
+          }
+  
+          p {
+            font-size: 0.95rem;
+            color: var(--muted);
+          }
+        }
+  
+        .goal-footer {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          border-top: 1px solid var(--line);
+          padding-top: 1rem;
+  
+          .target-date {
+            font-size: 0.85rem;
+            color: var(--muted);
+          }
+  
+          .goal-actions {
+            display: flex;
+            gap: 0.5rem;
+  
+            button {
+              padding: 0.4rem 0.8rem;
+              border-radius: 6px;
+              font-size: 0.85rem;
+              font-weight: 600;
+              cursor: pointer;
+              border: 1px solid var(--line);
+              background: var(--bg);
+              color: var(--ink);
+              transition: all 0.2s;
+              font-family: var(--font);
+            }
+  
+            .btn-complete {
+              background: var(--accent-soft);
+              color: var(--accent);
+              border-color: transparent;
+              &:hover { background: #d3e8dc; }
+            }
+  
+            .btn-activate {
+              background: #fdf6e2;
+              color: var(--gold);
+              border-color: transparent;
+              &:hover { background: #faedcc; }
+            }
+  
+            .btn-delete {
+              background: #fcf1f1;
+              color: #a93232;
+              border-color: transparent;
+              &:hover { background: #f9e2e2; }
+            }
+          }
+        }
+      }
+    }
+  }
